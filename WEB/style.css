@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+
+    min-height: 200vh;
+    background-color: #000;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    padding: 25px 100px;
+    z-index: 100000;
+    background: white;
+    font-family: 'Poppins', sans-serif;
+}
+header.sticky{
+    padding: 5px 100px;
+    background: #30ff0646;
+    opacity: .8;
+}
+header .logo img{
+    position: relative;
+    transition: 0.6s;
+    height: 80px;
+}
+header ul{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+header ul li{
+    position: relative;
+    list-style: none;
+}
+header ul li a{
+    text-decoration: none;
+    margin: 0px 15px;
+    color: #000000;
+    letter-spacing: 2px;
+    font-weight: 500px;
+    transition: 0.6s;
+}
+.banner{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    display: grid;
+    place-items: center;
+    overflow: hidden
+}
+.banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('img/cover.jpg');
+    background-size: cover;
+    opacity: 0.6; /* Adjust opacity as needed */
+    z-index: -1; /* Send the pseudo-element behind the content */
+}
+.banner > p{
+    color: white;
+    position: absolute;
+    font-size: 80px;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    width: 25ch;
+  animation: typing 3s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+}
+@keyframes typing {
+    from {
+      width: 0
+    }
+  }
+      
+  @keyframes blink {
+    50% {
+      border-color: transparent
+    }
+  }
+header.sticky .logo,
+header.sticky ul li a{
+    color: #000000;
+}
+header ul li a:hover{
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px rgba(2, 248, 35, 0.863);
+}
+.about{
+    height: 50vh;
+    background-color: #fff;
+    text-align: center;
+    height: 1000px;
+    font-family: 'Poppins', sans-serif;
+}
+.about h1{
+    text-align: center;
+    font-weight: 500;
+    color: #0d460d;
+    line-height: 80%;
+}
+.about p{
+    font-weight: 300;
+    margin: 0 20vw;
+    line-height: 170%;
+    text-align: center;
+    color: #142951;
+    max-width: 1200px;
+    margin-top: 10px;
+}
+.about a{
+    display: inline-block;
+    font-weight: 300;
+    margin: 0 20vw;
+    line-height: 170%;
+    text-align: center;
+    color: #142951;
+    max-width: 1200px;
+    margin-top: 10px;
+    text-decoration: underline;
+    text-decoration-color: rgba(2, 248, 35, 0.863);
+    color: black;
+    text-underline-offset: 5px;
+}
+.about a:hover{
+    text-decoration-color: navy;
+}
+footer {
+    background: #000;
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+footer .social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Add space between icons */
+    padding-bottom: 1vh;
+}
+
+footer .social a {
+    display: inline-flex;
+}
+
+footer .social img {
+    height: 50px;
+    padding: 10px;
+    transition: 0.6s;   
+}
+footer .links ul{
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 1vh;
+}
+footer .links ul li{
+    position: relative;
+    list-style: none;
+}
+footer .links ul li a{
+    text-decoration: none;
+    margin: 0px 15px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 500px;
+    transition: 0.6s;
+    font-family: 'Poppins', sans-serif;
+}
+footer .links ul li a:hover{
+    color: lawngreen;
+    text-decoration: underline;
+    text-underline-offset:5px;
+}
+footer .credits p{
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Add space between icons */
+    padding-top: 2vh;
+}
+footer .credits hr{
+    margin: 0px 30px;
+    width: 1592px;
+}
+footer .credits a{
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Add space between icons */
+    padding-top: 3vh;
+}
