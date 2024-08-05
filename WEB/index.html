@@ -42,9 +42,21 @@
         
         Join us at Al Aqsa School, where every day is an opportunity to learn, grow, and make a lasting impact. Discover a place where excellence is not just an aspiration but a way of life.</p>
         <a href="#">Discover Life at Reid Avenue</a>
+        <div class="principal">
+            <img src="img/principal.jpg" alt="">
+            <h3>Principal Message</h3>
+            <p>At Al Aqsha School, we are committed to guiding students on their journey towards a brighter and more successful future. Understanding that the path to achieving your goals can be both exciting and challenging, our mission is to provide you with the tools, inspiration, and guidance you need to navigate this journey with confidence.
+
+                We believe in the incredible potential within every student. Our goal is to empower you by offering valuable resources, motivational content, and practical advice that will help you excel academically and personally. Whether you’re looking to enhance your study skills, explore new opportunities, or gain clarity on your future aspirations, we are here to support you every step of the way.
+                
+                Explore our platform, engage with our community, and take advantage of the wealth of information and support available. Your dedication and passion are the keys to unlocking your future success, and we are honored to be part of your journey.
+                
+                Together, let’s build a future filled with achievement and possibility.
+            </p>
+        </div>
     </div>
-    <div class="principal"></div>
-    <div class="flogo"><img src="img/logo3.pn" alt=""></div>
+
+    <div class="flogo"><img src="img/logo3.png" alt=""></div>
     <footer>
         <div class="social">
             <a href="#"><img src="img/fb.png" alt="fb"></a>
@@ -63,15 +75,16 @@
                     <a href="#">ABOUT</a>
                 </li>
                 <li>
-                    <a href="#">CONTACT</a>
+                    <a href="#">CONTACT</a
                 </li>
                 <li>
                     <a href="#">GALLERY</a>
                 </li>
             </ul>
         </div>
+        <hr>
         <div class="credits">
-            <hr><p>© 2024 Al Aqsha</p>
+            <p>© 2024 Al Aqsha</p>
             <a href="#">PROJECT 25</a>
         </div>
     </footer>
@@ -81,5 +94,15 @@
         header.classList.toggle("sticky", window.scrollY > 0)
     })
 </script>
+<script>// script.js
+    document.addEventListener('DOMContentLoaded', function () {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+    
+        menuToggle.addEventListener('click', function () {
+            navLinks.classList.toggle('show');
+        });
+    });
+    </script>
 </body>
 </html>

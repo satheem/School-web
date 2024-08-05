@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+
+* {
 
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
 }
-body{
+
+body {
 
     min-height: 200vh;
     background-color: #000;
 }
-header{
+
+/* Base styles for the header */
+header {
     position: fixed;
     top: 0;
     left: 0;
@@ -18,41 +22,54 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: 0.6s;
     padding: 25px 100px;
     z-index: 100000;
     background: white;
+    /* Default background color */
     font-family: 'Poppins', sans-serif;
+    transition: background-color 0.6s;
 }
-header.sticky{
+
+/* Styles for the sticky header with semi-transparent background */
+header.sticky {
     padding: 5px 100px;
-    background: #30ff0646;
-    opacity: .8;
-}
-header .logo img{
-    position: relative;
+    background: rgba(255, 255, 255, .5);
+    /* Semi-transparent background color */
     transition: 0.6s;
-    height: 80px;
 }
-header ul{
+
+
+/* Ensure logo remains unaffected by background opacity */
+header .logo img {
+    height: 80px;
+    transition: 0.6s;
+}
+
+/* Navigation links */
+header ul {
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
 }
-header ul li{
+
+header ul li {
     position: relative;
     list-style: none;
 }
-header ul li a{
+
+header ul li a {
     text-decoration: none;
-    margin: 0px 15px;
-    color: #000000;
+    margin: 0 15px;
+    color: #000;
     letter-spacing: 2px;
-    font-weight: 500px;
+    font-weight: 500;
     transition: 0.6s;
 }
-.banner{
+
+
+
+.banner {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -61,6 +78,7 @@ header ul li a{
     place-items: center;
     overflow: hidden
 }
+
 .banner::before {
     content: "";
     position: absolute;
@@ -70,10 +88,13 @@ header ul li a{
     height: 100vh;
     background-image: url('img/cover.jpg');
     background-size: cover;
-    opacity: 0.6; /* Adjust opacity as needed */
-    z-index: -1; /* Send the pseudo-element behind the content */
+    opacity: 0.6;
+    /* Adjust opacity as needed */
+    z-index: -1;
+    /* Send the pseudo-element behind the content */
 }
-.banner > p{
+
+.banner>p {
     color: white;
     position: absolute;
     font-size: 80px;
@@ -81,45 +102,52 @@ header ul li a{
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     width: 25ch;
-  animation: typing 3s steps(22), blink .5s step-end infinite alternate;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid;
+    animation: typing 3s steps(22), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
 }
+
 @keyframes typing {
     from {
-      width: 0
+        width: 0
     }
-  }
-      
-  @keyframes blink {
+}
+
+@keyframes blink {
     50% {
-      border-color: transparent
+        border-color: transparent
     }
-  }
+}
+
 header.sticky .logo,
-header.sticky ul li a{
+header.sticky ul li a {
     color: #000000;
 }
-header ul li a:hover{
+
+/* Hover effect for navigation links */
+header ul li a:hover {
     padding: 10px;
     border-radius: 20px;
     box-shadow: 0 0 10px 5px rgba(2, 248, 35, 0.863);
 }
-.about{
+
+.about {
     height: 50vh;
     background-color: #fff;
     text-align: center;
     height: 1000px;
     font-family: 'Poppins', sans-serif;
 }
-.about h1{
+
+.about h1 {
     text-align: center;
     font-weight: 500;
     color: #0d460d;
     line-height: 80%;
 }
-.about p{
+
+.about p {
     font-weight: 300;
     margin: 0 20vw;
     line-height: 170%;
@@ -128,7 +156,8 @@ header ul li a:hover{
     max-width: 1200px;
     margin-top: 10px;
 }
-.about a{
+
+.about a {
     display: inline-block;
     font-weight: 300;
     margin: 0 20vw;
@@ -142,9 +171,11 @@ header ul li a:hover{
     color: black;
     text-underline-offset: 5px;
 }
-.about a:hover{
+
+.about a:hover {
     text-decoration-color: navy;
 }
+
 footer {
     background: #000;
     width: 100%;
@@ -159,7 +190,8 @@ footer .social {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Add space between icons */
+    gap: 20px;
+    /* Add space between icons */
     padding-bottom: 1vh;
 }
 
@@ -170,20 +202,23 @@ footer .social a {
 footer .social img {
     height: 50px;
     padding: 10px;
-    transition: 0.6s;   
+    transition: 0.6s;
 }
-footer .links ul{
+
+footer .links ul {
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
     padding-bottom: 1vh;
 }
-footer .links ul li{
+
+footer .links ul li {
     position: relative;
     list-style: none;
 }
-footer .links ul li a{
+
+footer .links ul li a {
     text-decoration: none;
     margin: 0px 15px;
     color: #fff;
@@ -192,31 +227,135 @@ footer .links ul li a{
     transition: 0.6s;
     font-family: 'Poppins', sans-serif;
 }
-footer .links ul li a:hover{
+
+footer .links ul li a:hover {
     color: lawngreen;
     text-decoration: underline;
-    text-underline-offset:5px;
+    text-underline-offset: 5px;
 }
-footer .credits p{
+
+footer .credits p {
     color: #fff;
     font-family: 'Times New Roman', Times, serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Add space between icons */
+    gap: 20px;
+    /* Add space between icons */
     padding-top: 2vh;
 }
-footer .credits hr{
+
+hr {
     margin: 0px 30px;
     width: 1592px;
 }
-footer .credits a{
+
+footer .credits a {
     text-decoration: none;
-    color: #fff;
+    color: white;
     font-family: 'Times New Roman', Times, serif;
+    display: block-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    /* Add space between icons */
+    padding-top: 3vh;
+    display: flex;
+
+}
+
+footer .credits a:hover {
+    color: lawngreen;
+}
+
+.flogo {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px; /* Add space between icons */
-    padding-top: 3vh;
+    background-color: #fff;
+}
+
+.flogo img {
+    height: 20vh;
+    padding: 20px;
+}
+
+/* Styling for the principal section container */
+.about .principal {
+    background: linear-gradient(145deg, rgba(0, 197, 10, 0.884), rgb(58, 58, 58));
+    /* Gradient background */
+    display: flex;
+    flex-direction: column;
+    /* Stack elements vertically */
+    align-items: center;
+    /* Center-align items horizontally */
+    justify-content: center;
+    /* Center-align items vertically */
+    width: 80%;
+    max-width: 1200px;
+    /* Limit the width for better responsiveness */
+    border-radius: 20px;
+    /* Rounded corners */
+    padding: 30px;
+    /* Space inside the container */
+    margin: 5vh auto;
+    /* Center horizontally and add vertical spacing */
+    text-align: center;
+    /* Center-align text */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    /* Enhanced shadow for depth */
+    backdrop-filter: blur(10px);
+    /* Blur effect for a modern look */
+}
+
+/* Styling for the image inside the principal section */
+.about .principal img {
+    border-radius: 50%;
+    /* Circular image */
+    height: 150px;
+    /* Fixed height */
+    width: 150px;
+    /* Consistent width */
+    object-fit: cover;
+    /* Cover the area without distortion */
+    margin-bottom: 20px;
+    /* Space below the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    /* Subtle shadow for depth */
+}
+
+/* Styling for the heading inside the principal section */
+.about .principal h3 {
+    font-size: 28px;
+    /* Larger font size for emphasis */
+    font-weight: 700;
+    /* Bold weight for prominence */
+    color: #ffffff;
+    /* White text for contrast */
+    margin: 0;
+    /* Remove default margin */
+    margin-bottom: 15px;
+    /* Space below the heading */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+    /* Subtle text shadow for readability */
+}
+
+/* Styling for the paragraph inside the principal section */
+.about .principal p {
+    font-size: 16px;
+    /* Readable text size */
+    font-weight: 300;
+    /* Lighter weight for body text */
+    color: #ffffff;
+    /* White text for readability */
+    line-height: 1.6;
+    /* Improve readability with line spacing */
+    padding: 0 15px;
+    /* Padding to prevent text from touching edges */
+    margin: 0;
+    /* Remove default margin */
+    text-align: center;
+    /* Center-align text */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+    /* Subtle text shadow for better readability */
 }
