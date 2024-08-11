@@ -1,19 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+/* General Styles */
 * {
-
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-
     min-height: 200vh;
     background-color: #000;
+    font-family: 'Poppins', sans-serif;
 }
 
-/* Base styles for the header */
 header {
     position: fixed;
     top: 0;
@@ -25,27 +22,20 @@ header {
     padding: 25px 100px;
     z-index: 100000;
     background: white;
-    /* Default background color */
-    font-family: 'Poppins', sans-serif;
-    transition: background-color 0.6s;
-}
-
-/* Styles for the sticky header with semi-transparent background */
-header.sticky {
-    padding: 5px 100px;
-    background: rgba(255, 255, 255, .5);
-    /* Semi-transparent background color */
     transition: 0.6s;
 }
+header.sticky {
+    padding: 5px 100px;
+    background: rgba(255, 255, 255, 0.9); /* Added opacity value */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
 
 
-/* Ensure logo remains unaffected by background opacity */
 header .logo img {
     height: 80px;
     transition: 0.6s;
 }
 
-/* Navigation links */
 header ul {
     display: flex;
     position: relative;
@@ -54,7 +44,6 @@ header ul {
 }
 
 header ul li {
-    position: relative;
     list-style: none;
 }
 
@@ -67,16 +56,27 @@ header ul li a {
     transition: 0.6s;
 }
 
+header.sticky .logo,
+header.sticky ul li a {
+    color: #000;
+}
 
+header ul li a:hover {
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 5px rgba(2, 248, 35, 0.863);
+}
 
+/* Banner Styles */
 .banner {
     position: relative;
     width: 100%;
     height: 100vh;
     background-size: cover;
+    background-position: center; /* Ensure the image is centered */
     display: grid;
     place-items: center;
-    overflow: hidden
+    overflow: hidden;
 }
 
 .banner::before {
@@ -85,13 +85,12 @@ header ul li a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: url('img/cover.jpg');
-    background-size: cover;
+    background-size: cover; /* Ensure the image covers the element */
+    background-position: center; /* Center the image */
     opacity: 0.6;
-    /* Adjust opacity as needed */
     z-index: -1;
-    /* Send the pseudo-element behind the content */
 }
 
 .banner>p {
@@ -102,88 +101,265 @@ header ul li a {
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     width: 25ch;
-    animation: typing 3s steps(22), blink .5s step-end infinite alternate;
+    animation: typing 3s steps(22), blink 0.5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;
 }
-
-@keyframes typing {
-    from {
-        width: 0
+/* Mobile Specific Adjustments */
+@media screen and (max-width: 750px) {
+    .banner {
+        height: 90vh; /* Reduce height for smaller screens */
     }
+
+    .banner::before {
+        background-size: cover; /* Ensure the image covers the element */
+        background-position: center; /* Center the image */
+    }
+
+    .banner>p {
+        font-size: 3rem; /* Adjust font size for smaller screens */
+        width: 25ch; /* Adjust width for better fit */
+    }
+    header.sticky{
+        height: 60px;
+    }
+    header{
+        height: 70px;
+    }
+    header .logo img{
+        height: 50px;
+    }
+    header.sticky {
+        padding: 5px 55px;
+        background: rgba(255, 255, 255, 0.9); /* Added opacity value */
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    }
+}/* Extra Small Devices (320px and below) */
+@media screen and (max-width: 320px) {
+    .banner {
+        height: 40vh; /* Adjust height for very small screens */
+    }
+
+    .banner > p {
+        font-size: 18px; /* Adjust font size for better readability */
+        width: 24ch; /* Adjust width to fit smaller screens */
+    }
+}
+
+/* Small Devices (375px and above) */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    .banner {
+        height: 50vh; /* Adjust height for small screens */
+    }
+
+    .banner > p {
+        font-size: 20px; /* Slightly larger font size */
+        width: 24ch; /* Adjust width for better text fitting */
+    }
+}
+
+/* Medium Devices (425px and above) */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    .banner {
+        height: 60vh; /* Adjust height for medium screens */
+    }
+
+    .banner > p {
+        font-size: 24px; /* Larger font size */
+        width: 24ch; /* Adjust width for readability */
+    }
+}
+
+/* Tablets (800px and above) */
+@media screen and (min-width: 426px) and (max-width: 800px) {
+    .banner {
+        height: 70vh; /* Height adjustment for tablets */
+    }
+
+    .banner > p {
+        font-size: 26px; /* Font size adjustment for tablets */
+        width: 24ch; /* Adjust width for better fit */
+    }
+}
+
+/* Large Tablets and Small Laptops (900px and above) */
+@media screen and (min-width: 801px) and (max-width: 900px) {
+    .banner {
+        height: 100vh; /* Height adjustment for larger tablets/small laptops */
+    }
+
+    .banner > p {
+        font-size: 30px; /* Font size adjustment for larger screens */
+        width: 24ch; /* Adjust width accordingly */
+    }
+}
+
+/* Laptops and Desktops (1024px and above) */
+@media screen and (min-width: 901px) and (max-width: 1024px) {
+    .banner {
+        height: 100vh; /* Height for laptops and desktops */
+    }
+
+    .banner > p {
+        font-size: 40px; /* Larger font size for desktops */
+        width: 25ch; /* Adjust width to fit larger text */
+    }
+}
+
+/* Extra Large Screens (1200px and above) */
+@media screen and (min-width: 1200px) {
+    .banner {
+        height: 100vh; /* Maintain height for very large screens */
+    }
+
+    .banner > p {
+        font-size: 50px; /* Larger font size for extra large screens */
+        width: 25ch; /* Maintain width for large screens */
+    }
+}
+
+/* Extra Large Screens (1200px and above) */
+@media screen and (max-width: 465px) {
+    .banner {
+        height: 50vh; /* Maintain height for very large screens */
+    }
+
+    .banner > p {
+        font-size: 20px; /* Larger font size for extra large screens */
+        width: 25ch; /* Maintain width for large screens */
+    }
+}
+@media screen and (max-width: 820px) {
+    .banner {
+        height: 50vh; /* Maintain height for very large screens */
+    }
+
+    .banner > p {
+        font-size: 20px; /* Larger font size for extra large screens */
+        width: 25ch; /* Maintain width for large screens */
+    }
+}
+@media screen and (max-width: 920px) {
+    .banner {
+        height: 50vh; /* Maintain height for very large screens */
+    }
+
+    .banner > p {
+        font-size: 25px; /* Larger font size for extra large screens */
+        width: 25ch; /* Maintain width for large screens */
+    }
+}
+@keyframes typing {
+    from { width: 0; }
 }
 
 @keyframes blink {
-    50% {
-        border-color: transparent
-    }
+    50% { border-color: transparent; }
 }
 
-header.sticky .logo,
-header.sticky ul li a {
-    color: #000000;
-}
-
-/* Hover effect for navigation links */
-header ul li a:hover {
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px 5px rgba(2, 248, 35, 0.863);
-}
-
+/* About Section */
 .about {
-    height: 50vh;
     background-color: #fff;
     text-align: center;
-    height: 1000px;
     font-family: 'Poppins', sans-serif;
 }
 
-.about h1 {
-    text-align: center;
+.about h2 {
+    font-size: 2rem; /* Adjusted size for consistency */
     font-weight: 500;
     color: #0d460d;
-    line-height: 80%;
 }
 
 .about p {
+    font-size: 1rem; /* Adjusted size for readability */
     font-weight: 300;
-    margin: 0 20vw;
+    margin: 0 10%;
     line-height: 170%;
-    text-align: center;
     color: #142951;
-    max-width: 1200px;
-    margin-top: 10px;
 }
 
 .about a {
     display: inline-block;
     font-weight: 300;
-    margin: 0 20vw;
-    line-height: 170%;
-    text-align: center;
+    margin: 20px 10%;
     color: #142951;
-    max-width: 1200px;
-    margin-top: 10px;
     text-decoration: underline;
     text-decoration-color: rgba(2, 248, 35, 0.863);
-    color: black;
-    text-underline-offset: 5px;
 }
 
 .about a:hover {
     text-decoration-color: navy;
 }
 
-footer {
-    background: #000;
-    width: 100%;
-    height: 20vh;
+.about .principal {
+    background: linear-gradient(145deg, rgba(0, 197, 10, 0.884), rgb(58, 58, 58));
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 5vh auto;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+.about .principal img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.about .principal h3 {
+    font-size: 1.75rem; /* Adjusted size for consistency */
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.about .principal p {
+    font-size: 1rem; /* Adjusted size for readability */
+    font-weight: 300;
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 0 15px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Styles */
+footer {
+    background: #000; /* Ensure footer background color is set correctly */
+    width: 100%;
+    padding: 20px; /* Adjust padding to ensure no overflow */
+    box-sizing: border-box; /* Ensure padding and border are included in element's total width and height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    position: relative; /* Position relative for any pseudo-elements or positioning */
+    margin-top: 0; /* Ensure there's no margin pushing content out */
+}
+
+footer::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px; /* Adjust height if needed to cover any potential overflow */
+    background: #000; /* Match footer background color */
+}
+
+/* Ensure no unwanted backgrounds are affecting footer */
+footer * {
+    box-sizing: border-box;
 }
 
 footer .social {
@@ -191,8 +367,7 @@ footer .social {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    /* Add space between icons */
-    padding-bottom: 1vh;
+    padding-bottom: 10px;
 }
 
 footer .social a {
@@ -200,32 +375,30 @@ footer .social a {
 }
 
 footer .social img {
-    height: 50px;
-    padding: 10px;
+    height: 2.5rem; /* Adjusted size for better fit */
     transition: 0.6s;
 }
 
 footer .links ul {
     display: flex;
-    position: relative;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
     justify-content: center;
     align-items: center;
-    padding-bottom: 1vh;
+    padding-bottom: 10px;
+    margin: 0;
 }
 
 footer .links ul li {
-    position: relative;
     list-style: none;
+    margin: 0 10px; /* Added margin for spacing */
 }
 
 footer .links ul li a {
     text-decoration: none;
-    margin: 0px 15px;
     color: #fff;
     letter-spacing: 2px;
-    font-weight: 500px;
+    font-weight: 500;
     transition: 0.6s;
-    font-family: 'Poppins', sans-serif;
 }
 
 footer .links ul li a:hover {
@@ -234,34 +407,23 @@ footer .links ul li a:hover {
     text-underline-offset: 5px;
 }
 
-footer .credits p {
-    color: #fff;
-    font-family: 'Times New Roman', Times, serif;
+footer .credits {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     gap: 20px;
-    /* Add space between icons */
-    padding-top: 2vh;
+    margin-top: 20px;
 }
 
-hr {
-    margin: 0px 30px;
-    width: 1592px;
+footer .credits p {
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 footer .credits a {
     text-decoration: none;
     color: white;
     font-family: 'Times New Roman', Times, serif;
-    display: block-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    /* Add space between icons */
-    padding-top: 3vh;
-    display: flex;
-
 }
 
 footer .credits a:hover {
@@ -272,90 +434,297 @@ footer .credits a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: #fff; /* Ensure background is set to white or transparent */
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow if needed */
+    border-radius: 10px; /* Rounded corners for a cleaner look */
+}
+footer::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px; /* Optional, adjust if needed */
+    background: #000;
 }
 
 .flogo img {
-    height: 20vh;
-    padding: 20px;
+    height: 5rem; /* Adjusted height for visibility */
+    max-width: 100%; /* Ensure it scales properly */
 }
 
-/* Styling for the principal section container */
-.about .principal {
-    background: linear-gradient(145deg, rgba(0, 197, 10, 0.884), rgb(58, 58, 58));
-    /* Gradient background */
+/* Responsive Adjustments for Footer */
+@media screen and (max-width: 700px) {
+    footer .social img {
+        height: 1.875rem; /* Adjusted size for smaller screens */
+    }
+
+    footer .links ul {
+        flex-direction: column; /* Stack links vertically on smaller screens */
+    }
+
+    footer .links ul li {
+        margin: 5px 0; /* Adjusted margin for vertical stacking */
+    }
+
+    .flogo img {
+        height: 4rem; /* Adjusted height for smaller screens */
+    }
+}
+
+/* Responsive Styles */
+.navbar-menu-toggle {
+    display: none;
+}
+
+.side-navbar {
+    background-color: #fff;
+    width: 60%; /* Adjusted width for better fit */
+    max-width: 300px; /* Optional: max width to avoid being too wide */
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    color: black;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow for better visibility */
+}
+.about h2 {
+    font-size: 2rem; /* Adjust size if needed */
+}
+
+.about p {
+    font-size: 1rem; /* Adjust size if needed */
+}
+
+.side-navbar.active {
+    transform: translateX(0);
+}
+
+.side-navbar .side-nav-link {
     display: flex;
     flex-direction: column;
-    /* Stack elements vertically */
     align-items: center;
-    /* Center-align items horizontally */
     justify-content: center;
-    /* Center-align items vertically */
-    width: 80%;
-    max-width: 1200px;
-    /* Limit the width for better responsiveness */
-    border-radius: 20px;
-    /* Rounded corners */
-    padding: 30px;
-    /* Space inside the container */
-    margin: 5vh auto;
-    /* Center horizontally and add vertical spacing */
-    text-align: center;
-    /* Center-align text */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    /* Enhanced shadow for depth */
-    backdrop-filter: blur(10px);
-    /* Blur effect for a modern look */
+    height: 100%;
+    list-style: none;
+    padding: 0;
 }
 
-/* Styling for the image inside the principal section */
-.about .principal img {
-    border-radius: 50%;
-    /* Circular image */
-    height: 150px;
-    /* Fixed height */
-    width: 150px;
-    /* Consistent width */
-    object-fit: cover;
-    /* Cover the area without distortion */
+.side-navbar .side-nav-link li {
     margin-bottom: 20px;
-    /* Space below the image */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    /* Subtle shadow for depth */
 }
 
-/* Styling for the heading inside the principal section */
-.about .principal h3 {
-    font-size: 28px;
-    /* Larger font size for emphasis */
-    font-weight: 700;
-    /* Bold weight for prominence */
-    color: #ffffff;
-    /* White text for contrast */
-    margin: 0;
-    /* Remove default margin */
-    margin-bottom: 15px;
-    /* Space below the heading */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
-    /* Subtle text shadow for readability */
+.side-navbar .side-nav-link li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-/* Styling for the paragraph inside the principal section */
-.about .principal p {
-    font-size: 16px;
-    /* Readable text size */
-    font-weight: 300;
-    /* Lighter weight for body text */
-    color: #ffffff;
-    /* White text for readability */
-    line-height: 1.6;
-    /* Improve readability with line spacing */
-    padding: 0 15px;
-    /* Padding to prevent text from touching edges */
-    margin: 0;
-    /* Remove default margin */
-    text-align: center;
-    /* Center-align text */
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-    /* Subtle text shadow for better readability */
+.side-navbar .side-nav-link li a:hover {
+    color: #0d460d;
+}
+
+.side-navbar .close-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1000px) {
+    header {
+        padding: 15px 50px;
+    }
+
+    header ul {
+        display: none;
+    }
+
+    .navbar-menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    .about p {
+        margin: 0 5%;
+    }
+
+    .about a {
+        margin: 20px 5%;
+    }
+}
+@media screen and (max-width: 700px) {
+    .navbar-menu-toggle {
+        display: block;
+    }
+
+    header ul {
+        display: none;
+    }
+
+    .about p {
+        margin: 0 5%;
+    }
+
+    .about a {
+        margin: 20px 5%;
+    }
+}
+/* Extra Small Devices (320px and below) */
+@media screen and (max-width: 320px) {
+    .about .principal {
+        padding: 15px; /* Reduce padding */
+    }
+
+    .about .principal img {
+        height: 80px; /* Smaller image size */
+        width: 80px;
+    }
+
+    .about .principal h3 {
+        font-size: 1.2rem; /* Significantly smaller font size */
+        margin-bottom: 5px; /* Adjust margin for better spacing */
+    }
+
+    .about .principal p {
+        font-size: 0.7rem; /* Smaller font size */
+        line-height: 1.2; /* Adjust line-height for better readability */
+    }
+}
+
+/* Small Devices (375px and above) */
+@media screen and (min-width: 321px) and (max-width: 375px) {
+    .about .principal {
+        padding: 20px; /* Slightly more padding */
+    }
+
+    .about .principal img {
+        height: 100px; /* Slightly larger image size */
+        width: 100px;
+    }
+
+    .about .principal h3 {
+        font-size: 1.4rem; /* Smaller font size */
+        margin-bottom: 10px; /* Adjust margin for better spacing */
+    }
+
+    .about .principal p {
+        font-size: 0.9rem; /* Slightly larger font size */
+        line-height: 1.3; /* Adjust line-height for better readability */
+    }
+}
+
+/* Medium Devices (425px and above) */
+@media screen and (min-width: 376px) and (max-width: 425px) {
+    .about .principal {
+        padding: 25px; /* Adjust padding */
+    }
+
+    .about .principal img {
+        height: 120px; /* Larger image size */
+        width: 120px;
+    }
+
+    .about .principal h3 {
+        font-size: 1.6rem; /* Adjust font size */
+        margin-bottom: 15px; /* Adjust margin for better spacing */
+    }
+
+    .about .principal p {
+        font-size: 1rem; /* Larger font size */
+        line-height: 1.4; /* Adjust line-height for better readability */
+    }
+}
+
+/* Tablets (800px and above) */
+@media screen and (min-width: 426px) and (max-width: 800px) {
+    .about .principal {
+        padding: 30px; /* Adjust padding */
+    }
+
+    .about .principal img {
+        height: 130px; /* Adjust image size */
+        width: 130px;
+    }
+
+    .about .principal h3 {
+        font-size: 1.8rem; /* Adjust font size */
+        margin-bottom: 20px; /* Adjust margin for better spacing */
+    }
+
+    .about .principal p {
+        font-size: 1.1rem; /* Adjust font size */
+        line-height: 1.5; /* Adjust line-height for better readability */
+    }
+}
+
+/* Large Tablets and Small Laptops (900px and above) */
+@media screen and (min-width: 801px) and (max-width: 900px) {
+    .about .principal {
+        padding: 35px; /* Adjust padding */
+    }
+
+    .about .principal img {
+        height: 140px; /* Adjust image size */
+        width: 140px;
+    }
+
+    .about .principal h3 {
+        font-size: 2rem; /* Adjust font size */
+        margin-bottom: 25px; /* Adjust margin for better spacing */
+    }
+
+    .about .principal p {
+        font-size: 1.2rem; /* Adjust font size */
+        line-height: 1.6; /* Adjust line-height for better readability */
+    }
+}
+
+/* Laptops and Desktops (1024px and above) */
+@media screen and (min-width: 901px) and (max-width: 1024px) {
+    .about .principal {
+        padding: 40px; /* Adjust padding */
+    }
+
+    .about .principal img {
+        height: 150px; /* Adjust image size */
+        width: 150px;
+    }
+
+    .about .principal h3 {
+        font-size: 2.2rem; /* Adjust font size */
+        margin-bottom: 30px; /* Adjust margin for better spacing */
+    }
+
+    .about .principal p {
+        font-size: 1.3rem; /* Adjust font size */
+        line-height: 1.7; /* Adjust line-height for better readability */
+    }
+}
+
+/* Extra Large Screens (1200px and above) */
+@media screen and (min-width: 1200px) {
+    .about .principal {
+        padding: 50px; /* Adjust padding */
+    }
+
+    .about .principal img {
+        height: 160px; /* Adjust image size */
+        width: 160px;
+    }
+
+    .about .principal h3 {
+        font-size: 2.4rem; /* Adjust font size */
+        margin-bottom: 35px; /* Adjust margin for better spacing */
+    }
+
+    .about .principal p {
+        font-size: 1.4rem; /* Adjust font size */
+        line-height: 1.8; /* Adjust line-height for better readability */
+    }
 }
